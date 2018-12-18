@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /*菜单居中*/
+        body {
+            padding-top: 100px;
+            text-align: center;
+        }
+
+        .menu {
+            border: 2px solid #aac;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        /*去除a标签下划线*/
+        .menu a {
+            text-decoration: none;
+        }
+
+        /*ul li*/
+        .menu ul, .menu li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            float: left;
+        }
+
+        .menu > ul > li > ul {
+            position: absolute;
+            display: none;
+        }
+
+        .menu > ul > li > ul > li {
+            float: none;
+        }
+
+        .menu > ul > li:hover ul {
+            display: block;
+        }
+
+        /* 一级菜单 */
+        .menu > ul > li > a {
+            width: 120px;
+            line-height: 40px;
+            color: black;
+            background-color: #cfe;
+            text-align: center;
+            border-left: 1px solid #bbf;
+            display: block;
+        }
+
+        /* 在一级菜单中，第一个不设置左边框 */
+        .menu > ul > li:first-child > a {
+            border-left: none;
+        }
+
+        /* 在一级菜单中，鼠标放上去的样式 */
+        .menu > ul > li > a:hover {
+            color: white;
+            background-color: #66B1FF;
+        }
+
+        /* 二级菜单 */
+        .menu > ul > li > ul > li > a {
+            width: 120px;
+            line-height: 36px;
+            color: #456;
+            background-color: #eff;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-top: none;
+            display: block;
+        }
+
+        /* 在二级菜单中，第一个设置顶边框 */
+        .menu > ul > li > ul > li:first-child > a {
+            border-top: 1px solid #ccc;
+        }
+
+        /* 在二级菜单中，鼠标放上去的样式 */
+        .menu > ul > li > ul > li > a:hover {
+            color: #a4f;
+            background-color: #cdf;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="menu">
+    <ul>
+        <li>
+            <a href="#">steam tools</a>
+            <ul>
+                <li><a href="/steam/get">steam api</a></li>
+                <li><a href="#">steam news</a></li>
+                <li><a href="#">steam app</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">video</a>
+            <ul>
+                <li><a href="#">no data</a></li>
+                <li><a href="#">no data</a></li>
+                <li><a href="#">no data</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">music</a>
+            <ul>
+                <li><a href="#">no data</a></li>
+                <li><a href="#">no data</a></li>
+                <li><a href="#">no data</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">games</a>
+            <ul>
+                <li><a href="#">no data</a></li>
+                <li><a href="#">no data</a></li>
+                <li><a href="#">no data</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">notes</a>
+            <ul>
+                <li><a href="#">no data</a></li>
+                <li><a href="#">no data</a></li>
+                <li><a href="#">no data</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">others</a>
+            <ul>
+                <li><a href="#">no data</a></li>
+                <li><a href="#">no data</a></li>
+                <li><a href="#">no data</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
