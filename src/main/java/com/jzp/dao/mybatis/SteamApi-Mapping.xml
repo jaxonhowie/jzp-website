@@ -3,9 +3,9 @@
         PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="org.jz.dao.SteamApiDao">
+<mapper namespace="com.jzp.dao.SteamApiDao">
 
-    <resultMap id="getMap" type="org.jz.model.steam.SteamApi">
+    <resultMap id="getMap" type="com.jzp.model.SteamApi">
         <result column="OID" property="oid" jdbcType="NUMERIC"/>
         <result column="NAME" property="name" jdbcType="VARCHAR"/>
         <result column="METHODS" property="methods" jdbcType="VARCHAR"/>
@@ -34,7 +34,7 @@
     </update>
 
     <!--根据接口名称更新接口-->
-    <update id="updateSelective" parameterType="org.jz.model.steam.SteamApi">
+    <update id="updateSelective" parameterType="com.jzp.model.SteamApi">
         UPDATE steam_api
         <set>
             <if test="oid != null">OID=#{oid},</if>
@@ -47,7 +47,7 @@
 
     </update>
 
-    <insert id="insertSelective" parameterType="org.jz.model.steam.SteamApi">
+    <insert id="insertSelective" parameterType="com.jzp.model.SteamApi">
         INSERT INTO steam_api
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="oid != null">

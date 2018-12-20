@@ -11,6 +11,9 @@ spring:
     suffix: .html
     mode: HTML
 
+#mybatis配置
+mybatis:
+  mapper-locations: classpath*:/com/jzp/dao/mybatis/**Mapping.xml
 
 server:
   port: 80
