@@ -1,0 +1,16 @@
+#dev env
+spring:
+  profiles: prd
+  datasource:
+    url: jdbc:mysql://localhost:3306/website?useUnicode=true&characterEncoding=utf8
+    password: 123456
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+  thymeleaf:
+    suffix: .html
+    mode: HTML
+
+
+server:
+  port: 80

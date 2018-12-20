@@ -18,7 +18,6 @@ public class SteamApiController extends BaseController {
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public String getApiList(Model model){
-
         model.addAttribute("apiList", "test");
         return "/menu/steam/apilist";
     }
