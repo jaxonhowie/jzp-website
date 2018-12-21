@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jzp.dao.SteamApiDao">
+
+    <resultMap id="getMap" type="com.jzp.model.SteamApi">
+        <result column="OID" property="oid" jdbcType="NUMERIC"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="METHODS" property="methods" jdbcType="VARCHAR"/>
+        <result column="I_TIME" property="iTime" jdbcType="TIMESTAMP"/>
+        <result column="U_TIME" property="uTime" jdbcType="TIMESTAMP"/>
+        <result column="IS_DEL" property="isDel" jdbcType="CHAR"/>
+    </resultMap>
+
+    <select id="queryAll" resultMap="getMap">
+        SELECT OID, NAME, METHODS, U_TIME, I_TIME, IS_DEL
+        FROM steam_api
+        WHERE IS_DEL = '0'
+    </select>
+
+    <select id="queryAllIgnoreDel" resultMap="getMap">
+        SELECT OID, NAME, METHODS, U_TIME, I_TIME, IS_DEL FROM steam_api;
+    </select>
+
+    <select id="selectByName" parameterType="java.lang.String" resultMap="getMap">
+        SELECT OID, NAME, METHODS, U_TIME, I_TIME, IS_DEL FROM steam_api WHERE NAME = #{name}
+    </select>
+
+    <!--逻辑删除-->
+    <update id="delAll">
+        UPDATE steam_api SET IS_DEL = '1'
+    </update>
+
+    <!--根据接口名称更新接口-->
+    <update id="updateSelective" parameterType="com.jzp.model.SteamApi">
+        UPDATE steam_api
+        <set>
+            <if test="oid != null">OID=#{oid},</if>
+            <if test="methods != null">METHODS=#{methods},</if>
+            <if test="I_TIME != null">I_TIME=#{I_TIME},</if>
+            <if test="U_TIME != null">U_TIME=#{U_TIME},</if>
+            <if test="isDel != null">IS_DEL=#{isDel},</if>
+        </set>
+        WHERE NAME =#{name}
+
+    </update>
+
+    <insert id="insertSelective" parameterType="com.jzp.model.SteamApi">
+        INSERT INTO steam_api
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="oid != null">
+                OID,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="methods != null">
+                METHODS,
+            </if>
+            <if test="I_TIME != null">
+                I_TIME,
+            </if>
+            <if test="U_TIME != null">
+                U_TIME,
+            </if>
+            <if test="isDel != null">
+                IS_DEL,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="oid != null">
+                #{oid,jdbcType=NUMERIC},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="methods != null">
+                #{methods,jdbcType=VARCHAR},
+            </if>
+            <if test="I_TIME != null">
+                #{I_TIME,jdbcType=TIMESTAMP},
+            </if>
+            <if test="U_TIME != null">
+                #{U_TIME,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=CHAR}
+            </if>
+        </trim>
+    </insert>
+</mapper>
