@@ -1,6 +1,8 @@
-#dev env
+#prd配置文件
 spring:
   profiles: prd
+
+  #数据源
   datasource:
     url: jdbc:mysql://localhost:3306/website?useUnicode=true&characterEncoding=utf8
     password: 123456
