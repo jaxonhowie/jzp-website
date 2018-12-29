@@ -10,12 +10,18 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 
   thymeleaf:
+    cache: false
     suffix: .html
-    mode: HTML
+    prefix: classpath:/templates/
+    mode: HTML5
+  resources:
+    static-locations: classpath:/resources/,classpath:/static/,classpath:/templates/
+
+server:
+  port: 80
 
 #mybatis配置
 mybatis:
   mapper-locations: classpath*:/com/jzp/dao/mybatis/**Mapping.xml
 
-server:
-  port: 80
+
