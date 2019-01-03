@@ -9,7 +9,6 @@ import org.springframework.web.util.HtmlUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 /**
  * @author Hongyi Zheng
@@ -20,10 +19,9 @@ public class ChatServerController {
     @MessageMapping("/send")
     @SendTo("/topic/broadcast")
     public ChatLog broadcast(BroadCastMessage message) throws Exception {
-        // simulated delay
-//        Thread.sleep(1000);
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss", Locale.CHINA);
-        return new ChatLog(": " + HtmlUtils.htmlEscape(message.getMessage()), sdf.format(new Date()) + "(GMT +8)");
+        long threadId = Thread.currentThread().getId();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return new ChatLog(threadId + ": " + HtmlUtils.htmlEscape(message.getMessage()), sdf.format(new Date()) + "(GMT +8)");
     }
+
 }

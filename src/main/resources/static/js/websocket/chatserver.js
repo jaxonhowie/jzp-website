@@ -40,7 +40,7 @@ function disconnect() {
 
 // 提交内容
 function sendMsg() {
-    stompClient.send("/app/send", {}, JSON.stringify({
+    stompClient.send("/chat/send", {}, JSON.stringify({
         'message': $("#ctt").val()
     }));
     $("#ctt").val("");

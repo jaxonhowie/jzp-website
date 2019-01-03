@@ -1,5 +1,6 @@
 package com.jzp.common;
 
+import org.hibernate.resource.transaction.backend.jta.internal.synchronization.AfterCompletionAction;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -14,6 +15,6 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index").setViewName("index");
-        registry.addViewController("/chat").setViewName("menu/others/chat/index");
+        registry.addViewController("/chat").setViewName("menu/others/chat/chatroom");
     }
 }

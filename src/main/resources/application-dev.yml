@@ -4,7 +4,7 @@ spring:
   profiles: dev
   #数据源配置
   datasource:
-    url: jdbc:mysql://localhost:3306/website?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/website?useUnicode=true&characterEncoding=utf8&useSSL=false
     password: 123456
     username: root
     driver-class-name: com.mysql.jdbc.Driver
