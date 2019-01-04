@@ -24,4 +24,7 @@ server:
 mybatis:
   mapper-locations: classpath*:/com/jzp/dao/mybatis/**Mapping.xml
 
+#logback-spring config配置文件位置
+logging:
+  config: classpath:logback.xml
 
