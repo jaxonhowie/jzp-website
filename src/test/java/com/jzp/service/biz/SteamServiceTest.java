@@ -21,6 +21,6 @@ public class SteamServiceTest {
 
     @Test
     public void requestApiList() {
-        assertNotNull(steamService.requestApiList());
+        assertNotNull(steamService.getApiList());
     }
 }
