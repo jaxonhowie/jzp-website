@@ -1,4 +1,4 @@
-package com.jzp.common;
+package com.jzp.common.websocket;
 
 import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaders;

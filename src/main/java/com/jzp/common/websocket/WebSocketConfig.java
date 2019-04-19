@@ -1,4 +1,4 @@
-package com.jzp.common;
+package com.jzp.common.websocket;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

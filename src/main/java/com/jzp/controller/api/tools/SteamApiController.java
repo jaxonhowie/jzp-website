@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @author Hongyi Zheng
  * @date 2018/12/17
@@ -17,8 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class SteamApiController extends BaseController {
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public String getApiList(Model model){
-        model.addAttribute("apiList", "test");
+    public String getApiList(){
+        JSONObject jObj = new JSONObject();
+
         return "/menu/steam/apilist";
     }
 }

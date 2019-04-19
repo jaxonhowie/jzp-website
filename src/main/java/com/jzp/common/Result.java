@@ -16,6 +16,21 @@ public class Result {
     private String message;
     private Object data;
 
+    public Result() {
+    }
+
+    public Result(Object data) {
+        buildResult(null, null, data);
+    }
+
+    public Result(RspCode rspCode, String msg) {
+        buildResult(rspCode, msg, null);
+    }
+
+    public Result(RspCode rspCode, String msg, Object data) {
+        buildResult(rspCode, msg, data);
+    }
+
     public String getCode() {
         return code;
     }
@@ -40,11 +55,11 @@ public class Result {
         this.data = data;
     }
 
-    public static JSONObject buildJson(String transId, RspCode rspCode, String msg, Map<String,Object> data, boolean withBlankChar){
-        rspCode = (null == rspCode? RspCode.SUC : rspCode);
-        Map<String,Object> map = new HashMap<>(4);
-        //TODO  result
-        return null;
+    private void buildResult(RspCode rspCode, String msg, Object data) {
+        rspCode = rspCode == null ? RspCode.SUC : rspCode;
+        this.code = rspCode.code();
+        this.message = msg == null ? rspCode.message() : rspCode.message() + "：" + msg;
+        this.data = data;
     }
 
     public static ValueFilter filter = new ValueFilter() {

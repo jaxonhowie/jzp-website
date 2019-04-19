@@ -1,4 +1,4 @@
-package com.jzp.common;
+package com.jzp.common.websocket;
 
 import com.jzp.model.websocket.User;
 import org.springframework.messaging.Message;
