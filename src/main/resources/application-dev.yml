@@ -4,15 +4,19 @@ spring:
   profiles: dev
   #数据源配置
   datasource:
-    url: jdbc:mysql://localhost:3306/website?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/website?useUnicode=true&characterEncoding=utf8&useSSL=false
     password: 123456
     username: root
     driver-class-name: com.mysql.jdbc.Driver
-  #模板引擎配置
-  thymeleaf:
-    suffix: .html
-    mode: HTML
+    #模板引擎配置
 
+  thymeleaf:
+    cache: false
+    suffix: .html
+    prefix: classpath:/templates/
+    mode: HTML5
+  resources:
+    static-locations: classpath:/static/,classpath:/templates/
 #端口配置
 server:
   port: 8088
@@ -20,3 +24,6 @@ server:
 #mybatis配置
 mybatis:
   mapper-locations: classpath*:/com/jzp/dao/mybatis/**Mapping.xml
+
+logging:
+  config: classpath:logback.xml
