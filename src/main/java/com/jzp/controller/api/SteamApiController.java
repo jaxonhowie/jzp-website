@@ -1,4 +1,4 @@
-package com.jzp.controller;
+package com.jzp.controller.api;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -9,6 +9,7 @@ import com.github.pagehelper.PageHelper;
 import com.jzp.common.Constants;
 import com.jzp.common.PagedList;
 import com.jzp.common.Result;
+import com.jzp.controller.BaseController;
 import com.jzp.model.SteamApi;
 import com.jzp.service.biz.SteamService;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +32,8 @@ public class SteamApiController extends BaseController {
     }
 
     @GetMapping(value = "/get/apis")
-    public Result getApiList(@RequestParam Integer page, @RequestParam Integer pageSize) {
+    public Result getApiList(@RequestParam(value = "page", required = false) Integer page,
+                             @RequestParam(value = "pageSize", required = false) Integer pageSize) {
         pager(page, pageSize);
         JSONObject jObj = steamService.getApiList();
         return result(JSONPath.eval(jObj, ".apilist.interfaces"));
