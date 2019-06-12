@@ -9,14 +9,6 @@ spring:
     username: root
     driver-class-name: com.mysql.jdbc.Driver
 
-  thymeleaf:
-    cache: false
-    suffix: .html
-    prefix: classpath:/templates/
-    mode: HTML5
-  resources:
-    static-locations: classpath:/static/,classpath:/templates/
-
 server:
   port: 80
 

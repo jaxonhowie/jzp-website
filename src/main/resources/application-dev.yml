@@ -8,13 +8,7 @@ spring:
     password: 123456
     username: root
     driver-class-name: com.mysql.jdbc.Driver
-    #模板引擎配置
 
-  thymeleaf:
-    cache: false
-    suffix: .html
-    prefix: classpath:/templates/
-    mode: HTML5
   resources:
     static-locations: classpath:/static/,classpath:/templates/
 #端口配置

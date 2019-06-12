@@ -1,6 +1,8 @@
 package com.jzp.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageHelper;
+import com.jzp.common.Constants;
 import com.jzp.common.Result;
 import com.jzp.common.RspCode;
 import org.slf4j.Logger;
@@ -13,6 +15,21 @@ import org.slf4j.LoggerFactory;
 public class BaseController {
 
     protected final Logger logger = LoggerFactory.getLogger(BaseController.class);
+
+    protected void pager(Integer page, Integer pageSize) {
+        PageHelper.startPage(
+                page == null ? Constants.DEFAULT_CURRENT_PAGE : page,
+                pageSize == null ? Constants.DEFAULT_PAGE_SIZE : pageSize
+        );
+    }
+
+    protected void pager(JSONObject req) {
+        PageHelper.startPage(
+                req.getInteger("page") == null ? Constants.DEFAULT_CURRENT_PAGE : req.getInteger("page"),
+                req.getInteger("pageSize") == null ? Constants.DEFAULT_PAGE_SIZE : req.getInteger("pageSize")
+        );
+    }
+
 
     /**
      * 返回-成功但不返回数据

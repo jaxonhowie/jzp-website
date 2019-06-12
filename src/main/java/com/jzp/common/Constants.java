@@ -15,4 +15,14 @@ public class Constants {
      * ISO639-1 language code --Chinese
      */
     public static final String LANG_ZH = "zh";
+
+    /**
+     * 默认当前页
+     */
+    public static final int DEFAULT_CURRENT_PAGE = 1;
+
+    /**
+     * 默认每页数据量
+     */
+    public static final int DEFAULT_PAGE_SIZE = 20;
 }
